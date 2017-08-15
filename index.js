@@ -22,10 +22,19 @@ if (!email) {
 }
 
 const child = child_process.spawn("npm", ["login", "-q"], {
-  stdio: ["pipe", "inherit", "inherit"]
+  stdio: ["pipe", "pipe", "inherit"]
 });
 
-child.stdin.write(username + "\n");
-child.stdin.write(password + "\n");
-child.stdin.write(email + "\n");
-child.stdin.end();
+child.stdout.on("data", d => {
+  const data = d.toString();
+  process.stdout.write(d + "\n");
+  if (data.match(/username/i)) {
+    child.stdin.write(username + "\n");
+  } else if (data.match(/password/i)) {
+    child.stdin.write(password + "\n");
+  } else if (data.match(/email/i)) {
+    child.stdin.write(email + "\n");
+  } else if (data.match(/logged in as/i)) {
+    child.stdin.end();
+  }
+});
