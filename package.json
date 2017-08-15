@@ -1,6 +1,6 @@
 {
   "name": "npm-login-cmd",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Login into npm from the non-interactive CLI",
   "bin": {
     "npm-login-cmd": "index.js"
