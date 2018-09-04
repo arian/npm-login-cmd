@@ -21,7 +21,8 @@ if (!email) {
   process.exit(1);
 }
 
-const child = child_process.spawn("npm", ["login", "-q"], {
+const npm = /^win/.test(process.platform) ? 'npm.cmd' : 'npm';
+const child = child_process.spawn(npm, ["login", "-q"], {
   stdio: ["pipe", "pipe", "inherit"]
 });
 
