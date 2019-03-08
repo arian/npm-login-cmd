@@ -1,13 +1,15 @@
 {
   "name": "npm-login-cmd",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Login into npm from the non-interactive CLI",
   "bin": {
     "npm-login-cmd": "index.js"
   },
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint -c .eslintrc.json .",
+    "test": "jest --runInBand",
+    "test:watch": "jest --runInBand --watch"
   },
   "repository": {
     "type": "git",
@@ -23,5 +25,27 @@
   "bugs": {
     "url": "https://github.com/arian/npm-login-cmd/issues"
   },
-  "homepage": "https://github.com/arian/npm-login-cmd#readme"
+  "homepage": "https://github.com/arian/npm-login-cmd#readme",
+  "jest": {
+    "testEnvironment": "node",
+    "modulePathIgnorePatterns": [
+      "npm-cache"
+    ],
+    "testPathIgnorePatterns": [
+      "/util/"
+    ],
+    "silent": false
+  },
+  "dependencies": {
+    "commander": "^2.19.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.15.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "jest-cli": "^24.3.1",
+    "prettier": "^1.16.4"
+  }
 }
