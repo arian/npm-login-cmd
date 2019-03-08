@@ -5,6 +5,11 @@ an interactive shell, `expect` or anything fancy.
 
 ### Usage
 
+With parameters
+`npx npm-login-cmd -u john -p secret -e john@test.com`
+
+With environment variables
+
 ```bash
 export NPM_USER=john
 export NPM_PASS=secret
