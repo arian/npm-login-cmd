@@ -1,27 +1,29 @@
 {
-  "name": "npm-login-cmd",
-  "version": "1.0.4",
+  "name": "npm-login-cli",
+  "version": "0.0.1",
   "description": "Login into npm from the non-interactive CLI",
   "bin": {
-    "npm-login-cmd": "index.js"
+    "npm-login-cli": "cli.js"
   },
-  "main": "index.js",
+  "main": "cli.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arian/npm-login-cmd.git"
+    "url": "git+https://github.com/lifeofguenter/npm-login-cli.git"
   },
   "keywords": [
     "npm",
     "login",
-    "cli"
+    "adduser",
+    "cli",
+    "ci"
   ],
-  "author": "Arian Stolwijk",
-  "license": "ISC",
+  "author": "Gunter Grodotzki",
+  "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/arian/npm-login-cmd/issues"
+    "url": "https://github.com/lifeofguenter/npm-login-cli/issues"
   },
-  "homepage": "https://github.com/arian/npm-login-cmd#readme"
+  "homepage": "https://github.com/lifeofguenter/npm-login-cli"
 }

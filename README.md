@@ -1,4 +1,4 @@
-# npm-login-cmd
+# npm-login-cli
 
 A simple script to login into npm from the command line, in case you don't have
 an interactive shell, `expect` or anything fancy.
@@ -6,10 +6,12 @@ an interactive shell, `expect` or anything fancy.
 ### Usage
 
 ```bash
-export NPM_USER=john
-export NPM_PASS=secret
+npm -g install npm-login-cli
+
+export NPM_USERNAME=john
+export NPM_PASSWORD=secret
 export NPM_EMAIL=john@example.com
-npx npm-login-cmd
+npm-login-cli
 ```
 
 ### How it works

@@ -2,17 +2,18 @@
 
 const child_process = require("child_process");
 
-const username = process.env.NPM_USER;
-const password = process.env.NPM_PASS;
+const argv = process.argv.slice(2);
+const username = process.env.NPM_USERNAME;
+const password = process.env.NPM_PASSWORD;
 const email = process.env.NPM_EMAIL;
 
 if (!username) {
-  console.error("Please set the NPM_USER environment variable");
+  console.error("Please set the NPM_USERNAME environment variable");
   process.exit(1);
 }
 
 if (!password) {
-  console.error("Please set the NPM_PASS environment variable");
+  console.error("Please set the NPM_PASSWORD environment variable");
   process.exit(1);
 }
 
@@ -21,7 +22,9 @@ if (!email) {
   process.exit(1);
 }
 
-const child = child_process.spawn("npm", ["login", "-q"], {
+var npmArgs = ["adduser"].concat(argv);
+
+const child = child_process.spawn("npm", npmArgs, {
   stdio: ["pipe", "pipe", "inherit"]
 });
 
