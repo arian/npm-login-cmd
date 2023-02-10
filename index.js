@@ -21,7 +21,13 @@ if (!email) {
   process.exit(1);
 }
 
-const child = child_process.spawn("npm", ["login", "-q"], {
+const params = ["login", "-q"]
+if (process.env.NPM_EXTRA_ARGS) {
+  const extraArgs = JSON.parse(process.env.NPM_EXTRA_ARGS)
+  params.unshift(...extraArgs)
+}
+console.log(`Running with ${params}`)
+const child = child_process.spawn("npm", params, {
   stdio: ["pipe", "pipe", "inherit"]
 });
 
